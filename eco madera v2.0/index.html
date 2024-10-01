@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Eco Madera</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header id="catalog-header" class="hidden">
+        <div class="logo">
+            <img src="logo.jpg" alt="Eco Madera" />
+        </div>
+        <h1>Catálogo Eco Madera</h1>
+        <button onclick="showLogoutConfirmation()" class="logout-btn">Cerrar Sesión</button>
+    </header>
+
+    <div id="login-modal" class="login-modal">
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Nombre de Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <div class="show-password">
+                    <input type="checkbox" id="toggle-password">
+                    <label for="toggle-password">Mostrar contraseña</label>
+                </div>
+                <label>
+                    <input type="checkbox" id="remember-me"> Recordarme
+                </label>
+                <button type="submit" class="login-btn">Iniciar Sesión</button>
+            </form>
+            <div class="social-login">
+                <button onclick="socialLogin('Google')" class="google-btn">Iniciar con Google</button>
+                <button onclick="socialLogin('Facebook')" class="facebook-btn">Iniciar con Facebook</button>
+                <button onclick="socialLogin('Twitter')" class="twitter-btn">Iniciar con Twitter</button>
+            </div>
+        </div>
+    </div>
+        <div id="favorites-section">
+            <button onclick="showFavorites()">Ver Favoritos</button>
+        </div>
+
+    <div id="logout-confirmation" class="logout-confirmation hidden">
+        <p>¿Estás seguro de cerrar sesión?</p>
+        <button onclick="logout()" class="confirm-btn">Sí</button>
+        <button onclick="closeLogoutConfirmation()" class="cancel-btn">No</button>
+    </div>
+    
+
+    <section id="catalog-container" class="hidden">
+        <div class="category-buttons">
+            <button onclick="filterByCategory('minimalista')" class="category-btn">Minimalista</button>
+            <button onclick="filterByCategory('colorido')" class="category-btn">Colorido</button>
+            <button onclick="filterByCategory('clasico')" class="category-btn">Clásico</button>
+            <button onclick="filterByCategory('moderno')" class="category-btn">Moderno</button>
+            <button onclick="filterByCategory('personalizado')" class="category-btn">Personalizado</button>
+        </div>
+        <div id="catalog-items" class="catalog-items"></div>
+    </section>
+    
+
+    <footer>
+        <p>Eco Madera &copy; 2024</p>
+    </footer>
+    <!-- Añadir un botón de "Favoritos" en la página principal del catálogo -->
+<header id="catalog-header" class="hidden">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1 class="catalog-title">Catálogo de Eco Madera</h1>
+    </div>
+    <button id="logout-btn" class="btn" onclick="showLogoutConfirmation()">Cerrar Sesión</button>
+    <button id="favorites-button" class="btn">Favoritos</button> <!-- Botón de Favoritos -->
+</header>
+
+<!-- Sección de favoritos -->
+<div id="favorites-section" class="favorites hidden">
+    <h2>Favoritos</h2>
+    <div id="favorites-container"></div>
+    <button class="btn" onclick="goBackToCatalog()">Volver al Catálogo</button>
+</div>
+</body>
+</html>
